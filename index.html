@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>CSHS Lost & Found System</title>
 
   <style>
@@ -20,8 +19,7 @@
       min-height: 100vh;
     }
 
-    /* ================= LOGIN ================= */
-
+    /* LOGIN */
     #loginScreen {
       min-height: 100vh;
       display: flex;
@@ -38,7 +36,7 @@
       padding: 35px 25px;
       border-radius: 20px;
       text-align: center;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+      box-shadow: 0 15px 40px rgba(0,0,0,.2);
     }
 
     .login-box h1 {
@@ -48,21 +46,20 @@
 
     .login-box p {
       color: #64748b;
-      margin-bottom: 25px;
       line-height: 1.5;
+      margin-bottom: 25px;
     }
 
     .google-btn {
       width: 100%;
       padding: 14px;
-      border: none;
+      border: 1px solid #cbd5e1;
       border-radius: 10px;
-      background: #ffffff;
+      background: white;
       color: #1f2937;
       font-size: 16px;
       font-weight: bold;
       cursor: pointer;
-      border: 1px solid #cbd5e1;
     }
 
     .google-btn:hover {
@@ -70,15 +67,35 @@
     }
 
     #loginError {
+      display: none;
       margin-top: 15px;
       color: #dc2626;
       font-size: 14px;
-      display: none;
       line-height: 1.5;
     }
 
-    /* ================= MAIN ================= */
+    /* ERROR */
+    #errorScreen {
+      display: none;
+      min-height: 100vh;
+      background: white;
+      padding: 30px 20px;
+    }
 
+    #errorScreen h1 {
+      color: #dc2626;
+      margin-bottom: 15px;
+    }
+
+    #errorText {
+      background: #f1f5f9;
+      padding: 15px;
+      border-radius: 10px;
+      word-break: break-word;
+      white-space: pre-wrap;
+    }
+
+    /* MAIN */
     #mainSite {
       display: none;
     }
@@ -106,17 +123,17 @@
     }
 
     .user-info {
-      font-size: 12px;
       text-align: right;
+      font-size: 12px;
     }
 
     .logout-btn {
       margin-top: 5px;
+      padding: 7px 12px;
+      border: none;
+      border-radius: 6px;
       background: #dc2626;
       color: white;
-      border: none;
-      padding: 7px 12px;
-      border-radius: 6px;
       cursor: pointer;
     }
 
@@ -125,7 +142,7 @@
       padding: 10px;
     }
 
-    nav .nav-inner {
+    .nav-inner {
       max-width: 1100px;
       margin: auto;
       display: flex;
@@ -134,8 +151,8 @@
     }
 
     nav button {
-      border: none;
       padding: 10px 14px;
+      border: none;
       border-radius: 7px;
       background: transparent;
       color: white;
@@ -152,10 +169,15 @@
       padding: 25px 15px;
     }
 
-    .hero {
+    .hero,
+    .form-section,
+    .stat {
       background: white;
-      padding: 30px 20px;
       border-radius: 15px;
+    }
+
+    .hero {
+      padding: 30px 20px;
       margin-bottom: 20px;
       text-align: center;
     }
@@ -170,8 +192,7 @@
       line-height: 1.5;
     }
 
-    /* ================= STATS ================= */
-
+    /* STATS */
     .stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -180,11 +201,9 @@
     }
 
     .stat {
-      background: white;
       padding: 20px;
-      border-radius: 12px;
       text-align: center;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      box-shadow: 0 3px 10px rgba(0,0,0,.05);
     }
 
     .stat h3 {
@@ -196,12 +215,9 @@
       color: #64748b;
     }
 
-    /* ================= FORM ================= */
-
+    /* FORM */
     .form-section {
-      background: white;
       padding: 22px;
-      border-radius: 15px;
       margin-bottom: 25px;
     }
 
@@ -247,21 +263,17 @@
       cursor: pointer;
     }
 
-    .submit-btn:hover {
-      background: #1d4ed8;
+    .submit-btn:disabled {
+      opacity: .6;
+      cursor: not-allowed;
     }
 
-    /* ================= REPORTS ================= */
-
-    .reports-section {
-      margin-top: 25px;
-    }
-
+    /* REPORTS */
     .tools {
       display: flex;
+      flex-wrap: wrap;
       gap: 10px;
       margin-bottom: 15px;
-      flex-wrap: wrap;
     }
 
     .tools input {
@@ -292,7 +304,7 @@
       background: white;
       border-radius: 13px;
       overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 12px rgba(0,0,0,.08);
     }
 
     .report-card img {
@@ -360,8 +372,7 @@
       color: white;
     }
 
-    /* ================= ADMIN ================= */
-
+    /* ADMIN */
     #adminPanel {
       display: none;
       background: #fff7ed;
@@ -390,39 +401,12 @@
       cursor: pointer;
     }
 
-    /* ================= ERROR ================= */
-
-    #errorScreen {
-      display: none;
-      min-height: 100vh;
-      background: white;
-      padding: 30px 20px;
-    }
-
-    #errorScreen h1 {
-      color: #dc2626;
-      margin-bottom: 15px;
-    }
-
-    #errorText {
-      background: #f1f5f9;
-      padding: 15px;
-      border-radius: 10px;
-      white-space: pre-wrap;
-      word-break: break-word;
-      color: #334155;
-    }
-
-    /* ================= FOOTER ================= */
-
     footer {
       text-align: center;
       padding: 30px 15px;
       color: #64748b;
       font-size: 14px;
     }
-
-    /* ================= MOBILE ================= */
 
     @media (max-width: 600px) {
       .header-content {
@@ -438,7 +422,7 @@
         grid-template-columns: 1fr;
       }
 
-      nav .nav-inner {
+      .nav-inner {
         flex-direction: column;
       }
 
@@ -451,14 +435,12 @@
 
 <body>
 
-  <!-- ================= ERROR SCREEN ================= -->
-
+  <!-- ERROR SCREEN -->
   <div id="errorScreen">
     <h1>⚠️ Website Error</h1>
 
     <p>
-      The website could not start correctly.
-      Send this error message to Jarvis so we can fix it.
+      Something went wrong while starting the website.
     </p>
 
     <br>
@@ -467,8 +449,7 @@
   </div>
 
 
-  <!-- ================= LOGIN ================= -->
-
+  <!-- LOGIN -->
   <section id="loginScreen">
 
     <div class="login-box">
@@ -480,7 +461,10 @@
         Lost & Found System.
       </p>
 
-      <button class="google-btn" id="googleLogin">
+      <button
+        class="google-btn"
+        id="googleLogin"
+      >
         🔐 Sign in with Google
       </button>
 
@@ -491,8 +475,7 @@
   </section>
 
 
-  <!-- ================= MAIN WEBSITE ================= -->
-
+  <!-- MAIN WEBSITE -->
   <div id="mainSite">
 
     <header>
@@ -506,10 +489,13 @@
 
         <div class="user-info">
 
-          <div id="userName">User</div>
-          <div id="userEmail">Email</div>
+          <div id="userName"></div>
+          <div id="userEmail"></div>
 
-          <button class="logout-btn" id="logoutBtn">
+          <button
+            class="logout-btn"
+            id="logoutBtn"
+          >
             Logout
           </button>
 
@@ -548,10 +534,11 @@
     <main>
 
       <!-- HERO -->
-
       <section class="hero" id="home">
 
-        <h2>Lost something? We can help you find it.</h2>
+        <h2>
+          Lost something? We can help you find it.
+        </h2>
 
         <p>
           Found an item? Help return it to its owner.
@@ -567,7 +554,6 @@
 
 
       <!-- STATS -->
-
       <section class="stats">
 
         <div class="stat">
@@ -589,13 +575,12 @@
 
 
       <!-- ADMIN -->
-
       <section id="adminPanel">
 
         <h2>🔐 Admin Panel</h2>
 
         <p>
-          Admin and moderator functions are available here.
+          Admin and moderator functions.
         </p>
 
         <input
@@ -618,10 +603,14 @@
 
 
       <!-- REPORT FORM -->
+      <section
+        class="form-section"
+        id="reportForm"
+      >
 
-      <section class="form-section" id="reportForm">
-
-        <h2>📝 Report Lost or Found Item</h2>
+        <h2>
+          📝 Report Lost or Found Item
+        </h2>
 
         <form id="reportFormElement">
 
@@ -631,7 +620,10 @@
               Report Type
             </label>
 
-            <select id="reportType" required>
+            <select
+              id="reportType"
+              required
+            >
 
               <option value="">
                 Select report type
@@ -718,35 +710,28 @@
               Preferred School Meeting Location
             </label>
 
-            <select id="meetingLocation" required>
+            <select
+              id="meetingLocation"
+              required
+            >
 
               <option value="">
                 Select meeting location
               </option>
 
-              <option>
-                School Canteen
-              </option>
+              <option>School Canteen</option>
 
               <option>
                 Building 1 - Near the Office
               </option>
 
-              <option>
-                Guard House
-              </option>
+              <option>Guard House</option>
 
-              <option>
-                School Chapel
-              </option>
+              <option>School Chapel</option>
 
-              <option>
-                Library
-              </option>
+              <option>Library</option>
 
-              <option>
-                Building 2
-              </option>
+              <option>Building 2</option>
 
               <option>
                 Other School Location
@@ -759,7 +744,10 @@
 
           <div class="form-group">
 
-            <label id="photoLabel" for="itemPhoto">
+            <label
+              id="photoLabel"
+              for="itemPhoto"
+            >
               📷 Photo of Item
             </label>
 
@@ -774,7 +762,13 @@
           </div>
 
 
-          <div id="photoPreviewContainer" style="display:none; margin-bottom:15px;">
+          <div
+            id="photoPreviewContainer"
+            style="
+              display:none;
+              margin-bottom:15px;
+            "
+          >
 
             <img
               id="photoPreview"
@@ -804,60 +798,56 @@
 
 
       <!-- REPORTS -->
+      <section
+        class="form-section"
+        id="reports"
+      >
 
-      <section class="reports-section" id="reports">
+        <h2>
+          🔎 Lost & Found Reports
+        </h2>
 
-        <div class="form-section">
+        <div class="tools">
 
-          <h2>🔎 Lost & Found Reports</h2>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search items..."
+          >
 
-          <div class="tools">
+          <button
+            class="filter-btn active"
+            data-filter="all"
+          >
+            All
+          </button>
 
-            <input
-              type="text"
-              id="searchInput"
-              placeholder="Search items..."
-            >
+          <button
+            class="filter-btn"
+            data-filter="lost"
+          >
+            Lost
+          </button>
 
-            <button
-              class="filter-btn active"
-              data-filter="all"
-            >
-              All
-            </button>
+          <button
+            class="filter-btn"
+            data-filter="found"
+          >
+            Found
+          </button>
 
-            <button
-              class="filter-btn"
-              data-filter="lost"
-            >
-              Lost
-            </button>
+          <button
+            class="filter-btn"
+            data-filter="claimed"
+          >
+            Returned
+          </button>
 
-            <button
-              class="filter-btn"
-              data-filter="found"
-            >
-              Found
-            </button>
-
-            <button
-              class="filter-btn"
-              data-filter="claimed"
-            >
-              Returned
-            </button>
-
-          </div>
+        </div>
 
 
-          <div id="reportsContainer">
-
-            <p>
-              Loading reports...
-            </p>
-
-          </div>
-
+        <div id="reportsContainer">
+          <p>Loading reports...</p>
         </div>
 
       </section>
@@ -871,8 +861,14 @@
         CSHS Lost & Found System
       </p>
 
+      <br>
+
       <p>
-        Small acts of honesty make a better school community.
+        Lost something? We can help you find it.
+      </p>
+
+      <p>
+        Found an item? Help return it to its owner.
       </p>
 
     </footer>
@@ -880,19 +876,13 @@
   </div>
 
 
-  <!-- ================= FIREBASE ================= -->
-
+  <!-- FIREBASE -->
   <script type="module">
-
-    /*
-      IMPORTANT:
-      Firebase web configuration is safe to use
-      in frontend code.
-    */
 
     import {
       initializeApp
-    } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+    } from
+      "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 
     import {
       getFirestore,
@@ -903,7 +893,8 @@
       deleteDoc,
       doc,
       serverTimestamp
-    } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+    } from
+      "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
     import {
       getAuth,
@@ -911,14 +902,26 @@
       signInWithPopup,
       onAuthStateChanged,
       signOut
-    } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+    } from
+      "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 
 
-    /* ================= FIREBASE CONFIG ================= */
+    /*
+      ==================================================
+      FIREBASE CONFIG
+      ==================================================
+
+      IMPORTANT:
+      Replace ONLY the apiKey below with the EXACT
+      apiKey from Firebase Project Settings.
+
+      Do NOT change the other values unless Firebase
+      gives you a different config.
+    */
 
     const firebaseConfig = {
 
-      apiKey: "AIzaSyAnUqiLmFzqvqAeocVqYf8UWTQG8DQXTbM",
+      apiKey: "AIzaSyAnqUiLmFzqvqAeocVqYf8UWTQG8DQXTbM",
 
       authDomain:
         "cuenca-shs-lost-and-found.firebaseapp.com",
@@ -941,30 +944,44 @@
     };
 
 
-    /* ================= ERROR HANDLER ================= */
+    /* ERROR SCREEN */
 
     function showError(error) {
 
       console.error(error);
 
-      document.getElementById("loginScreen").style.display = "none";
+      document
+        .getElementById("loginScreen")
+        .style.display = "none";
 
-      document.getElementById("mainSite").style.display = "none";
+      document
+        .getElementById("mainSite")
+        .style.display = "none";
 
-      document.getElementById("errorScreen").style.display = "block";
+      document
+        .getElementById("errorScreen")
+        .style.display = "block";
 
-      document.getElementById("errorText").textContent =
-        error?.message ||
-        String(error);
+      document
+        .getElementById("errorText")
+        .textContent =
+          error?.message ||
+          String(error);
 
     }
 
 
-    window.addEventListener("error", function(event) {
+    window.addEventListener(
+      "error",
+      function(event) {
 
-      showError(event.error || event.message);
+        showError(
+          event.error ||
+          event.message
+        );
 
-    });
+      }
+    );
 
 
     window.addEventListener(
@@ -980,29 +997,36 @@
     );
 
 
-    /* ================= INITIALIZE ================= */
+    /* FIREBASE */
 
     let app;
     let db;
     let auth;
     let provider;
 
-
     try {
 
-      app = initializeApp(firebaseConfig);
+      app =
+        initializeApp(
+          firebaseConfig
+        );
 
-      db = getFirestore(app);
+      db =
+        getFirestore(app);
 
-      auth = getAuth(app);
+      auth =
+        getAuth(app);
 
-      provider = new GoogleAuthProvider();
+      provider =
+        new GoogleAuthProvider();
 
       provider.setCustomParameters({
         prompt: "select_account"
       });
 
-      console.log("Firebase initialized successfully.");
+      console.log(
+        "Firebase initialized."
+      );
 
     } catch (error) {
 
@@ -1011,7 +1035,7 @@
     }
 
 
-    /* ================= VARIABLES ================= */
+    /* VARIABLES */
 
     let currentUser = null;
 
@@ -1025,198 +1049,228 @@
       "cuencaseniorhighschoolpr2prog";
 
 
-    /* ================= GOOGLE LOGIN ================= */
+    /* GOOGLE LOGIN */
 
     document
       .getElementById("googleLogin")
-      .addEventListener("click", async function() {
+      .addEventListener(
+        "click",
+        async function() {
 
-        const loginError =
-          document.getElementById("loginError");
-
-        loginError.style.display = "none";
-
-        try {
-
-          console.log("Starting Google login...");
-
-          await signInWithPopup(
-            auth,
-            provider
-          );
-
-          console.log("Google login successful.");
-
-        } catch (error) {
-
-          console.error(
-            "Google login error:",
-            error
-          );
-
-          loginError.textContent =
-            "Login failed: " +
-            (error.message || error.code);
-
-          loginError.style.display = "block";
-
-        }
-
-      });
-
-
-    /* ================= AUTH STATE ================= */
-
-    if (auth) {
-
-      onAuthStateChanged(
-        auth,
-        function(user) {
-
-          if (user) {
-
-            currentUser = user;
-
+          const errorBox =
             document.getElementById(
-              "loginScreen"
-            ).style.display = "none";
-
-            document.getElementById(
-              "mainSite"
-            ).style.display = "block";
-
-            document.getElementById(
-              "userName"
-            ).textContent =
-              user.displayName ||
-              "Google User";
-
-            document.getElementById(
-              "userEmail"
-            ).textContent =
-              user.email ||
-              "";
-
-            console.log(
-              "Logged in:",
-              user.email
+              "loginError"
             );
 
-          } else {
+          errorBox.style.display =
+            "none";
 
-            currentUser = null;
+          try {
 
-            document.getElementById(
-              "loginScreen"
-            ).style.display = "flex";
+            await signInWithPopup(
+              auth,
+              provider
+            );
 
-            document.getElementById(
-              "mainSite"
-            ).style.display = "none";
+          } catch (error) {
+
+            console.error(
+              "Google Login Error:",
+              error
+            );
+
+            errorBox.textContent =
+              "Login failed: " +
+              (
+                error.message ||
+                error.code
+              );
+
+            errorBox.style.display =
+              "block";
 
           }
 
         }
       );
 
-    }
 
+    /* AUTH STATE */
 
-    /* ================= LOGOUT ================= */
+    onAuthStateChanged(
+      auth,
+      function(user) {
 
-    document
-      .getElementById("logoutBtn")
-      .addEventListener("click", async function() {
+        if (user) {
 
-        try {
+          currentUser =
+            user;
 
-          await signOut(auth);
+          document
+            .getElementById(
+              "loginScreen"
+            )
+            .style.display =
+            "none";
 
-        } catch (error) {
+          document
+            .getElementById(
+              "mainSite"
+            )
+            .style.display =
+            "block";
 
-          showError(error);
+          document
+            .getElementById(
+              "userName"
+            )
+            .textContent =
+            user.displayName ||
+            "Google User";
 
-        }
-
-      });
-
-
-    /* ================= REPORT TYPE ================= */
-
-    document
-      .getElementById("reportType")
-      .addEventListener("change", function() {
-
-        const type = this.value;
-
-        const label =
-          document.getElementById("photoLabel");
-
-        if (type === "lost") {
-
-          label.textContent =
-            "📷 Photo of Lost Item";
-
-        } else if (type === "found") {
-
-          label.textContent =
-            "📷 Photo of Found Item";
+          document
+            .getElementById(
+              "userEmail"
+            )
+            .textContent =
+            user.email ||
+            "";
 
         } else {
 
-          label.textContent =
-            "📷 Photo of Item";
+          currentUser =
+            null;
+
+          document
+            .getElementById(
+              "loginScreen"
+            )
+            .style.display =
+            "flex";
+
+          document
+            .getElementById(
+              "mainSite"
+            )
+            .style.display =
+            "none";
 
         }
 
-      });
+      }
+    );
 
 
-    /* ================= PHOTO PREVIEW ================= */
+    /* LOGOUT */
+
+    document
+      .getElementById("logoutBtn")
+      .addEventListener(
+        "click",
+        async function() {
+
+          try {
+
+            await signOut(auth);
+
+          } catch (error) {
+
+            showError(error);
+
+          }
+
+        }
+      );
+
+
+    /* REPORT TYPE */
+
+    document
+      .getElementById("reportType")
+      .addEventListener(
+        "change",
+        function() {
+
+          const label =
+            document.getElementById(
+              "photoLabel"
+            );
+
+          if (
+            this.value === "lost"
+          ) {
+
+            label.textContent =
+              "📷 Photo of Lost Item";
+
+          } else if (
+            this.value === "found"
+          ) {
+
+            label.textContent =
+              "📷 Photo of Found Item";
+
+          } else {
+
+            label.textContent =
+              "📷 Photo of Item";
+
+          }
+
+        }
+      );
+
+
+    /* PHOTO PREVIEW */
 
     document
       .getElementById("itemPhoto")
-      .addEventListener("change", function() {
+      .addEventListener(
+        "change",
+        function() {
 
-        const file = this.files[0];
+          const file =
+            this.files[0];
 
-        if (!file) {
-
-          document
-            .getElementById(
+          const container =
+            document.getElementById(
               "photoPreviewContainer"
-            )
-            .style.display = "none";
+            );
 
-          return;
+          if (!file) {
+
+            container.style.display =
+              "none";
+
+            return;
+
+          }
+
+          const reader =
+            new FileReader();
+
+          reader.onload =
+            function(event) {
+
+              document
+                .getElementById(
+                  "photoPreview"
+                )
+                .src =
+                event.target.result;
+
+              container.style.display =
+                "block";
+
+            };
+
+          reader.readAsDataURL(file);
 
         }
-
-        const reader =
-          new FileReader();
-
-        reader.onload = function(event) {
-
-          document
-            .getElementById(
-              "photoPreview"
-            )
-            .src = event.target.result;
-
-          document
-            .getElementById(
-              "photoPreviewContainer"
-            )
-            .style.display = "block";
-
-        };
-
-        reader.readAsDataURL(file);
-
-      });
+      );
 
 
-    /* ================= IMAGE COMPRESSION ================= */
+    /* IMAGE COMPRESSION */
 
     function compressImage(file) {
 
@@ -1226,68 +1280,84 @@
           const reader =
             new FileReader();
 
-          reader.onload = function(event) {
+          reader.onload =
+            function(event) {
 
-            const img =
-              new Image();
+              const img =
+                new Image();
 
-            img.onload = function() {
+              img.onload =
+                function() {
 
-              const canvas =
-                document.createElement(
-                  "canvas"
-                );
+                  const canvas =
+                    document.createElement(
+                      "canvas"
+                    );
 
-              const maxWidth = 700;
+                  const maxWidth =
+                    700;
 
-              let width = img.width;
+                  let width =
+                    img.width;
 
-              let height = img.height;
+                  let height =
+                    img.height;
 
-              if (width > maxWidth) {
+                  if (
+                    width >
+                    maxWidth
+                  ) {
 
-                height =
-                  height *
-                  (maxWidth / width);
+                    height =
+                      height *
+                      (
+                        maxWidth /
+                        width
+                      );
 
-                width =
-                  maxWidth;
+                    width =
+                      maxWidth;
 
-              }
+                  }
 
-              canvas.width = width;
+                  canvas.width =
+                    width;
 
-              canvas.height = height;
+                  canvas.height =
+                    height;
 
-              const ctx =
-                canvas.getContext("2d");
+                  const ctx =
+                    canvas.getContext(
+                      "2d"
+                    );
 
-              ctx.drawImage(
-                img,
-                0,
-                0,
-                width,
-                height
-              );
+                  ctx.drawImage(
+                    img,
+                    0,
+                    0,
+                    width,
+                    height
+                  );
 
-              const compressed =
-                canvas.toDataURL(
-                  "image/jpeg",
-                  0.55
-                );
+                  resolve(
+                    canvas.toDataURL(
+                      "image/jpeg",
+                      0.55
+                    )
+                  );
 
-              resolve(compressed);
+                };
+
+              img.onerror =
+                reject;
+
+              img.src =
+                event.target.result;
 
             };
 
-            img.onerror = reject;
-
-            img.src =
-              event.target.result;
-
-          };
-
-          reader.onerror = reject;
+          reader.onerror =
+            reject;
 
           reader.readAsDataURL(file);
 
@@ -1297,10 +1367,12 @@
     }
 
 
-    /* ================= SUBMIT REPORT ================= */
+    /* SUBMIT REPORT */
 
     document
-      .getElementById("reportFormElement")
+      .getElementById(
+        "reportFormElement"
+      )
       .addEventListener(
         "submit",
         async function(event) {
@@ -1310,24 +1382,17 @@
           if (!currentUser) {
 
             alert(
-              "Please sign in with Google first."
+              "Please sign in first."
             );
 
             return;
 
           }
 
-
-          const submitBtn =
-            document.getElementById(
-              "submitBtn"
-            );
-
           const file =
             document.getElementById(
               "itemPhoto"
             ).files[0];
-
 
           if (!file) {
 
@@ -1339,67 +1404,24 @@
 
           }
 
+          const button =
+            document.getElementById(
+              "submitBtn"
+            );
 
           try {
 
-            submitBtn.disabled = true;
+            button.disabled =
+              true;
 
-            submitBtn.textContent =
+            button.textContent =
               "Submitting...";
 
 
             const photo =
-              await compressImage(file);
-
-
-            const report = {
-
-              type:
-                document.getElementById(
-                  "reportType"
-                ).value,
-
-              itemName:
-                document.getElementById(
-                  "itemName"
-                ).value.trim(),
-
-              description:
-                document.getElementById(
-                  "description"
-                ).value.trim(),
-
-              location:
-                document.getElementById(
-                  "itemLocation"
-                ).value.trim(),
-
-              date:
-                document.getElementById(
-                  "reportDate"
-                ).value,
-
-              meetingLocation:
-                document.getElementById(
-                  "meetingLocation"
-                ).value,
-
-              reporter:
-                currentUser.displayName ||
-                "Google User",
-
-              reporterEmail:
-                currentUser.email ||
-                "",
-
-              photo: photo,
-
-              status: "active",
-
-              createdAt:
-                serverTimestamp()
-
-            };
+              await compressImage(
+                file
+              );
 
 
             await addDoc(
@@ -1407,12 +1429,61 @@
                 db,
                 "reports"
               ),
-              report
+              {
+
+                type:
+                  document.getElementById(
+                    "reportType"
+                  ).value,
+
+                itemName:
+                  document.getElementById(
+                    "itemName"
+                  ).value.trim(),
+
+                description:
+                  document.getElementById(
+                    "description"
+                  ).value.trim(),
+
+                location:
+                  document.getElementById(
+                    "itemLocation"
+                  ).value.trim(),
+
+                date:
+                  document.getElementById(
+                    "reportDate"
+                  ).value,
+
+                meetingLocation:
+                  document.getElementById(
+                    "meetingLocation"
+                  ).value,
+
+                reporter:
+                  currentUser.displayName ||
+                  "Google User",
+
+                reporterEmail:
+                  currentUser.email ||
+                  "",
+
+                photo:
+                  photo,
+
+                status:
+                  "active",
+
+                createdAt:
+                  serverTimestamp()
+
+              }
             );
 
 
             alert(
-              "Report submitted successfully!"
+              "Report submitted successfully! ✅"
             );
 
 
@@ -1427,7 +1498,8 @@
               .getElementById(
                 "photoPreviewContainer"
               )
-              .style.display = "none";
+              .style.display =
+              "none";
 
 
             document
@@ -1438,12 +1510,19 @@
               "📷 Photo of Item";
 
 
+            document
+              .getElementById(
+                "reportDate"
+              )
+              .value =
+              new Date()
+                .toISOString()
+                .split("T")[0];
+
+
           } catch (error) {
 
-            console.error(
-              "Could not send report:",
-              error
-            );
+            console.error(error);
 
             alert(
               "Could not send report:\n\n" +
@@ -1452,9 +1531,10 @@
 
           } finally {
 
-            submitBtn.disabled = false;
+            button.disabled =
+              false;
 
-            submitBtn.textContent =
+            button.textContent =
               "Submit Report";
 
           }
@@ -1463,86 +1543,73 @@
       );
 
 
-    /* ================= FIRESTORE REPORTS ================= */
+    /* LOAD REPORTS */
 
-    if (db) {
+    onSnapshot(
+      collection(
+        db,
+        "reports"
+      ),
+      function(snapshot) {
 
-      onSnapshot(
-        collection(db, "reports"),
-        function(snapshot) {
+        allReports = [];
 
-          allReports = [];
+        snapshot.forEach(
+          function(item) {
 
-          snapshot.forEach(
-            function(docSnapshot) {
+            allReports.push({
 
-              allReports.push({
+              id:
+                item.id,
 
-                id:
-                  docSnapshot.id,
+              ...item.data()
 
-                ...docSnapshot.data()
+            });
 
-              });
-
-            }
-          );
+          }
+        );
 
 
-          /*
-            Automatically remove ONLY
-            returned reports after 24 hours.
-          */
+        cleanupReturnedReports();
 
-          cleanupReturnedReports();
+        renderReports();
 
-          renderReports();
+        updateStats();
 
-          updateStats();
+      },
+      function(error) {
 
-        },
-        function(error) {
-
-          console.error(
-            "Firestore error:",
-            error
-          );
-
-          /*
-            Don't turn the entire website
-            black if Firestore rules fail.
-          */
-
-          document.getElementById(
+        document
+          .getElementById(
             "reportsContainer"
-          ).innerHTML =
-            `
-              <p style="color:#dc2626;">
-                Could not load reports.<br><br>
-                ${error.message}
-              </p>
-            `;
+          )
+          .innerHTML =
 
-        }
-      );
+          `
+            <p style="color:#dc2626;">
+              Could not load reports.<br><br>
+              ${escapeHTML(error.message)}
+            </p>
+          `;
 
-    }
+      }
+    );
 
 
-    /* ================= 24 HOUR CLEANUP ================= */
+    /* 24-HOUR RETURNED CLEANUP */
 
     async function cleanupReturnedReports() {
 
       const now =
         Date.now();
 
-
       for (
         const report of allReports
       ) {
 
         if (
-          report.status === "claimed" &&
+          report.status ===
+          "claimed" &&
           report.returnedAt &&
           report.returnedAt.toMillis
         ) {
@@ -1550,16 +1617,21 @@
           const returnedTime =
             report.returnedAt.toMillis();
 
-
           const hoursPassed =
             (
               now -
               returnedTime
             ) /
-            (1000 * 60 * 60);
+            (
+              1000 *
+              60 *
+              60
+            );
 
-
-          if (hoursPassed >= 24) {
+          if (
+            hoursPassed >=
+            24
+          ) {
 
             try {
 
@@ -1574,7 +1646,6 @@
             } catch (error) {
 
               console.error(
-                "Automatic cleanup failed:",
                 error
               );
 
@@ -1589,62 +1660,62 @@
     }
 
 
-    /* ================= FILTER ================= */
+    /* FILTER BUTTONS */
 
     document
-      .querySelectorAll(".filter-btn")
-      .forEach(function(button) {
+      .querySelectorAll(
+        ".filter-btn"
+      )
+      .forEach(
+        function(button) {
 
-        button.addEventListener(
-          "click",
-          function() {
+          button.addEventListener(
+            "click",
+            function() {
 
-            document
-              .querySelectorAll(
-                ".filter-btn"
-              )
-              .forEach(
-                function(btn) {
+              document
+                .querySelectorAll(
+                  ".filter-btn"
+                )
+                .forEach(
+                  function(btn) {
 
-                  btn.classList.remove(
-                    "active"
-                  );
+                    btn.classList.remove(
+                      "active"
+                    );
 
-                }
+                  }
+                );
+
+              this.classList.add(
+                "active"
               );
 
+              currentFilter =
+                this.dataset.filter;
 
-            this.classList.add(
-              "active"
-            );
+              renderReports();
 
-
-            currentFilter =
-              this.dataset.filter;
-
-            renderReports();
-
-          }
-        );
-
-      });
-
-
-    /* ================= SEARCH ================= */
-
-    document
-      .getElementById("searchInput")
-      .addEventListener(
-        "input",
-        function() {
-
-          renderReports();
+            }
+          );
 
         }
       );
 
 
-    /* ================= RENDER ================= */
+    /* SEARCH */
+
+    document
+      .getElementById(
+        "searchInput"
+      )
+      .addEventListener(
+        "input",
+        renderReports
+      );
+
+
+    /* RENDER REPORTS */
 
     function renderReports() {
 
@@ -1652,7 +1723,6 @@
         document.getElementById(
           "reportsContainer"
         );
-
 
       const search =
         document
@@ -1668,42 +1738,42 @@
         allReports.filter(
           function(report) {
 
-            const matchesSearch =
+            const text =
 
               (
                 report.itemName ||
                 ""
-              )
-                .toLowerCase()
-                .includes(search)
+              ).toLowerCase()
 
-              ||
+              +
+
+              " " +
 
               (
                 report.description ||
                 ""
-              )
-                .toLowerCase()
-                .includes(search)
+              ).toLowerCase()
 
-              ||
+              +
+
+              " " +
 
               (
                 report.location ||
                 ""
-              )
-                .toLowerCase()
-                .includes(search);
+              ).toLowerCase();
 
 
-            const matchesFilter =
+            const searchMatch =
+              text.includes(
+                search
+              );
 
-              currentFilter === "all"
 
-              ||
+            const filterMatch =
 
-              report.type ===
-              currentFilter
+              currentFilter ===
+              "all"
 
               ||
 
@@ -1712,39 +1782,21 @@
                 "claimed" &&
                 report.status ===
                 "claimed"
-              );
+              )
+
+              ||
+
+              report.type ===
+              currentFilter;
 
 
             return (
-              matchesSearch &&
-              matchesFilter
+              searchMatch &&
+              filterMatch
             );
 
           }
         );
-
-
-      /*
-        Newest reports first.
-      */
-
-      filtered.sort(
-        function(a, b) {
-
-          const aTime =
-            a.createdAt?.toMillis
-              ? a.createdAt.toMillis()
-              : 0;
-
-          const bTime =
-            b.createdAt?.toMillis
-              ? b.createdAt.toMillis()
-              : 0;
-
-          return bTime - aTime;
-
-        }
-      );
 
 
       if (
@@ -1752,18 +1804,15 @@
       ) {
 
         container.innerHTML =
-          `
-            <p>
-              No reports found.
-            </p>
-          `;
+          "<p>No reports found.</p>";
 
         return;
 
       }
 
 
-      container.innerHTML = "";
+      container.innerHTML =
+        "";
 
 
       filtered.forEach(
@@ -1818,10 +1867,12 @@
             ${
               report.photo
               ?
-              `<img
-                src="${report.photo}"
-                alt="Item photo"
-              >`
+              `
+                <img
+                  src="${report.photo}"
+                  alt="Item photo"
+                >
+              `
               :
               ""
             }
@@ -1911,6 +1962,7 @@
               }
 
             </div>
+
           `;
 
 
@@ -1924,7 +1976,7 @@
     }
 
 
-    /* ================= ESCAPE HTML ================= */
+    /* ESCAPE HTML */
 
     function escapeHTML(value) {
 
@@ -1953,21 +2005,10 @@
     }
 
 
-    /* ================= MARK RETURNED ================= */
+    /* MARK RETURNED */
 
     window.markReturned =
       async function(id) {
-
-        if (!currentUser) {
-
-          alert(
-            "Please sign in first."
-          );
-
-          return;
-
-        }
-
 
         try {
 
@@ -1988,16 +2029,14 @@
             }
           );
 
-
           alert(
-            "Item marked as returned."
+            "Item marked as returned. ✅"
           );
-
 
         } catch (error) {
 
           alert(
-            "Could not mark as returned:\n\n" +
+            "Could not mark returned:\n\n" +
             error.message
           );
 
@@ -2006,7 +2045,7 @@
       };
 
 
-    /* ================= ADMIN ================= */
+    /* ADMIN */
 
     window.activateAdmin =
       function() {
@@ -2016,7 +2055,6 @@
             "adminCode"
           ).value;
 
-
         const message =
           document.getElementById(
             "adminMessage"
@@ -2024,10 +2062,12 @@
 
 
         if (
-          code === ADMIN_CODE
+          code ===
+          ADMIN_CODE
         ) {
 
-          adminMode = true;
+          adminMode =
+            true;
 
           message.textContent =
             "✅ Admin mode activated.";
@@ -2050,7 +2090,7 @@
       };
 
 
-    /* ================= DELETE ================= */
+    /* DELETE */
 
     window.deleteReport =
       async function(id) {
@@ -2066,13 +2106,11 @@
         }
 
 
-        const confirmDelete =
-          confirm(
+        if (
+          !confirm(
             "Delete this report?"
-          );
-
-
-        if (!confirmDelete) {
+          )
+        ) {
 
           return;
 
@@ -2089,11 +2127,9 @@
             )
           );
 
-
           alert(
-            "Report deleted."
+            "Report deleted. 🗑️"
           );
-
 
         } catch (error) {
 
@@ -2107,7 +2143,7 @@
       };
 
 
-    /* ================= STATS ================= */
+    /* STATS */
 
     function updateStats() {
 
@@ -2150,13 +2186,13 @@
 
       document.getElementById(
         "lostCount"
-      ).textContent = lost;
-
+      ).textContent =
+        lost;
 
       document.getElementById(
         "foundCount"
-      ).textContent = found;
-
+      ).textContent =
+        found;
 
       document.getElementById(
         "returnedCount"
@@ -2166,18 +2202,21 @@
     }
 
 
-    /* ================= NAVIGATION ================= */
+    /* NAVIGATION */
 
     window.scrollToSection =
       function(id) {
 
         const element =
-          document.getElementById(id);
+          document.getElementById(
+            id
+          );
 
         if (element) {
 
           element.scrollIntoView({
-            behavior: "smooth"
+            behavior:
+              "smooth"
           });
 
         }
@@ -2185,7 +2224,7 @@
       };
 
 
-    /* ================= DEFAULT DATE ================= */
+    /* DEFAULT DATE */
 
     document
       .getElementById(
@@ -2196,10 +2235,6 @@
         .toISOString()
         .split("T")[0];
 
-
-    console.log(
-      "CSHS Lost & Found loaded."
-    );
 
   </script>
 
