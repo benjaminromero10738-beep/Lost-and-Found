@@ -2,840 +2,901 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Cuenca SHS Lost & Found</title><style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CSHS Lost & Found System</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-html {
-    scroll-behavior: smooth;
+body{
+    font-family:Arial,sans-serif;
+    background:#f4f7fb;
+    color:#222;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #f4f7fb;
-    color: #1f2937;
+.hidden{
+    display:none !important;
+}
+
+/* LOGIN */
+
+#loginScreen{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    background:linear-gradient(135deg,#0756b8,#1688e8);
+}
+
+.login-box{
+    width:100%;
+    max-width:420px;
+    background:white;
+    padding:35px 25px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 35px rgba(0,0,0,.2);
+}
+
+.login-logo{
+    font-size:55px;
+    margin-bottom:10px;
+}
+
+.login-box h1{
+    color:#0756b8;
+    margin-bottom:10px;
+}
+
+.login-box p{
+    color:#666;
+    line-height:1.5;
+    margin-bottom:25px;
+}
+
+.google-btn{
+    width:100%;
+    border:0;
+    background:#fff;
+    color:#333;
+    border:1px solid #ddd;
+    padding:14px;
+    border-radius:10px;
+    font-size:16px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.google-btn:hover{
+    background:#f5f5f5;
+}
+
+.login-note{
+    margin-top:18px;
+    font-size:12px;
+    color:#777;
 }
 
 /* NAVBAR */
-.navbar {
-    background: #123b6d;
-    color: white;
-    padding: 15px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#0756b8;
+    color:white;
+    padding:15px 5%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
 
-.logo {
-    font-size: 20px;
-    font-weight: bold;
+.logo{
+    font-size:20px;
+    font-weight:bold;
 }
 
-.menu-btn {
-    display: none;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 25px;
+#navMenu{
+    display:flex;
+    gap:20px;
+    align-items:center;
 }
 
-#navMenu {
-    display: flex;
-    gap: 20px;
+#navMenu a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
 }
 
-#navMenu a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
+.menu-btn{
+    display:none;
+    font-size:25px;
+    cursor:pointer;
+}
+
+.user-area{
+    font-size:13px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logout-btn{
+    border:0;
+    background:#fff;
+    color:#0756b8;
+    padding:7px 10px;
+    border-radius:7px;
+    cursor:pointer;
+    font-weight:bold;
 }
 
 /* HERO */
-.hero {
-    background: linear-gradient(135deg, #123b6d, #2878c8);
-    color: white;
-    padding: 80px 20px;
-    text-align: center;
+
+.hero{
+    background:linear-gradient(135deg,#0756b8,#1688e8);
+    color:white;
+    padding:65px 20px;
+    text-align:center;
 }
 
-.hero-content {
-    max-width: 800px;
-    margin: auto;
+.hero h1{
+    font-size:38px;
+    margin-bottom:12px;
 }
 
-.badge {
-    display: inline-block;
-    background: rgba(255,255,255,0.15);
-    padding: 8px 14px;
-    border-radius: 20px;
-    font-size: 12px;
-    margin-bottom: 20px;
+.hero p{
+    font-size:18px;
+    margin-bottom:10px;
 }
 
-.hero h1 {
-    font-size: 42px;
-    margin-bottom: 20px;
-}
-
-.hero h1 span {
-    color: #dceeff;
-}
-
-.hero p {
-    font-size: 17px;
-    margin-bottom: 30px;
-}
-
-.hero-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-}
-
-.btn {
-    padding: 13px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.primary {
-    background: white;
-    color: #123b6d;
-}
-
-.secondary {
-    border: 2px solid white;
-    color: white;
+.motto{
+    font-style:italic;
+    margin-top:18px;
 }
 
 /* STATS */
-.stats {
-    max-width: 1000px;
-    margin: -30px auto 40px;
-    padding: 0 20px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    position: relative;
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    max-width:1000px;
+    margin:30px auto;
+    padding:0 20px;
 }
 
-.stat-card {
-    background: white;
-    padding: 25px;
-    text-align: center;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+.stat{
+    background:white;
+    padding:22px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
 }
 
-.stat-card h2 {
-    font-size: 32px;
-    color: #123b6d;
+.stat h2{
+    color:#0756b8;
+    font-size:30px;
 }
 
-.stat-card p {
-    margin-top: 5px;
-    color: #666;
+.stat p{
+    color:#666;
 }
 
-/* SECTIONS */
-.section {
-    max-width: 1000px;
-    margin: auto;
-    padding: 50px 20px;
+/* MAIN */
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
 }
 
-.section-title {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.section-title span {
-    color: #2878c8;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.section-title h2 {
-    font-size: 30px;
-    margin: 8px 0;
+.section-title{
+    margin-bottom:20px;
+    color:#0756b8;
 }
 
 /* SEARCH */
-.search-box {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 25px;
+
+.search-area{
+    display:flex;
+    gap:10px;
+    margin-bottom:20px;
 }
 
-.search-box input,
-.search-box select {
-    padding: 13px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 15px;
+.search-area input,
+.search-area select{
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
 }
 
-.search-box input {
-    flex: 1;
+.search-area input{
+    flex:1;
 }
 
-/* ITEMS */
-.items-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
+/* CARDS */
+
+#itemsContainer{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
 }
 
-.item-card {
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+.item-card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 3px 15px rgba(0,0,0,.08);
 }
 
-.item-card img {
-    width: 100%;
-    height: 190px;
-    object-fit: cover;
-    background: #eee;
+.item-card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
 }
 
-.item-content {
-    padding: 18px;
+.item-content{
+    padding:18px;
 }
 
-.item-content h3 {
-    margin-bottom: 8px;
+.item-content h3{
+    color:#0756b8;
+    margin-bottom:8px;
 }
 
-.item-content p {
-    font-size: 14px;
-    margin: 7px 0;
-    color: #555;
+.item-content p{
+    margin:6px 0;
+    color:#555;
 }
 
-.status {
-    display: inline-block;
-    padding: 5px 9px;
-    border-radius: 15px;
-    font-size: 12px;
-    font-weight: bold;
-    margin-bottom: 10px;
+.status{
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+    margin-top:8px;
 }
 
-.status.lost {
-    background: #ffe1e1;
-    color: #b42318;
+.status.lost{
+    background:#ffe0e0;
+    color:#c40000;
 }
 
-.status.found {
-    background: #e1f3ff;
-    color: #075985;
+.status.found{
+    background:#e0f0ff;
+    color:#0756b8;
 }
 
-.status.claimed {
-    background: #dcfce7;
-    color: #166534;
+.status.returned{
+    background:#dff7df;
+    color:#087008;
 }
 
-.item-actions {
-    margin-top: 15px;
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
+.card-buttons{
+    margin-top:15px;
+    display:flex;
+    gap:8px;
 }
 
-.item-actions button {
-    border: none;
-    padding: 8px 10px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
+.return-btn,
+.delete-btn{
+    border:0;
+    padding:9px 12px;
+    border-radius:7px;
+    cursor:pointer;
+    font-weight:bold;
 }
 
-.return-btn {
-    background: #dcfce7;
-    color: #166534;
+.return-btn{
+    background:#159447;
+    color:white;
 }
 
-.delete-btn {
-    background: #fee2e2;
-    color: #b91c1c;
+.delete-btn{
+    background:#d93030;
+    color:white;
 }
 
 /* FORM */
-.report-section {
-    background: white;
-    border-radius: 15px;
-    margin-bottom: 40px;
+
+.form-box{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    margin-top:50px;
+    box-shadow:0 3px 15px rgba(0,0,0,.08);
 }
 
-form {
-    max-width: 700px;
-    margin: auto;
+.form-group{
+    margin-bottom:18px;
 }
 
-.form-group {
-    margin-bottom: 18px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 7px;
-    font-weight: bold;
+.form-group label{
+    display:block;
+    margin-bottom:7px;
+    font-weight:bold;
 }
 
 .form-group input,
 .form-group textarea,
-.form-group select {
-    width: 100%;
-    padding: 13px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 15px;
+.form-group select{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
 }
 
-.form-group textarea {
-    min-height: 110px;
-    resize: vertical;
+.form-group textarea{
+    min-height:100px;
+    resize:vertical;
 }
 
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
+.location-help{
+    font-size:12px;
+    color:#777;
+    margin-top:5px;
 }
 
-.location-help {
-    color: #666;
-    font-size: 12px;
-    margin-top: 5px;
+.photo-label{
+    background:#eef6ff;
+    border:1px solid #c9e2ff;
+    padding:12px;
+    border-radius:8px;
+    margin-bottom:10px;
+    color:#0756b8;
+    font-weight:bold;
 }
 
-.photo-help {
-    color: #666;
-    font-size: 12px;
-    margin-top: 5px;
+#photoPreview{
+    max-width:200px;
+    max-height:200px;
+    margin-top:10px;
+    border-radius:10px;
+    display:none;
 }
 
-.submit-btn {
-    width: 100%;
-    background: #123b6d;
-    color: white;
-    border: none;
-    padding: 15px;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
+.submit-btn{
+    width:100%;
+    background:#0756b8;
+    color:white;
+    border:0;
+    padding:14px;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+    font-weight:bold;
 }
 
-.submit-btn:hover {
-    background: #0d2d53;
-}
-
-.submit-btn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+.submit-btn:hover{
+    background:#064692;
 }
 
 /* ADMIN */
-.admin-section {
-    max-width: 700px;
-    margin: 0 auto 50px;
-    padding: 25px;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+
+.admin-box{
+    background:#fff8e1;
+    border:1px solid #ffd45c;
+    padding:25px;
+    border-radius:15px;
+    margin-top:50px;
 }
 
-.admin-section h2 {
-    margin-bottom: 10px;
+.admin-box input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
 }
 
-.admin-section p {
-    color: #666;
-    margin-bottom: 15px;
+.admin-btn{
+    background:#e0a800;
+    color:white;
+    border:0;
+    padding:10px 15px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
 }
 
-.admin-login {
-    display: flex;
-    gap: 10px;
+#adminStatus{
+    margin-top:10px;
+    font-weight:bold;
 }
 
-.admin-login input {
-    flex: 1;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+/* USER INFO */
+
+.user-info{
+    background:#eaf4ff;
+    border-left:5px solid #0756b8;
+    padding:15px;
+    margin:20px auto;
+    max-width:1000px;
+    border-radius:8px;
 }
 
-.admin-login button {
-    background: #123b6d;
-    color: white;
-    border: none;
-    padding: 12px 18px;
-    border-radius: 8px;
-    font-weight: bold;
+footer{
+    margin-top:60px;
+    background:#0756b8;
+    color:white;
+    text-align:center;
+    padding:30px 20px;
 }
 
-.admin-status {
-    margin-top: 15px;
-    font-weight: bold;
-}
-
-.logout-btn {
-    margin-top: 10px;
-    background: #666;
-    color: white;
-    border: none;
-    padding: 9px 15px;
-    border-radius: 7px;
-}
-
-/* FOOTER */
-footer {
-    background: #123b6d;
-    color: white;
-    text-align: center;
-    padding: 30px 20px;
-}
-
-footer p {
-    margin-top: 8px;
-    opacity: 0.8;
-}
-
-.credits {
-    font-size: 12px;
+footer p{
+    margin:7px;
 }
 
 /* MOBILE */
-@media (max-width: 768px) {
 
-    .menu-btn {
-        display: block;
+@media(max-width:700px){
+
+    .menu-btn{
+        display:block;
     }
 
-    #navMenu {
-        display: none;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        right: 0;
-        background: #123b6d;
-        flex-direction: column;
-        padding: 15px 20px;
+    #navMenu{
+        display:none;
+        position:absolute;
+        top:60px;
+        left:0;
+        right:0;
+        background:#0756b8;
+        flex-direction:column;
+        padding:20px;
     }
 
-    #navMenu.show {
-        display: flex;
+    #navMenu.active{
+        display:flex;
     }
 
-    .hero h1 {
-        font-size: 32px;
+    .user-area{
+        display:none;
     }
 
-    .stats {
-        grid-template-columns: 1fr;
-        margin-top: 20px;
+    .hero h1{
+        font-size:28px;
     }
 
-    .items-container {
-        grid-template-columns: 1fr;
+    .stats{
+        grid-template-columns:1fr;
     }
 
-    .search-box {
-        flex-direction: column;
-    }
-
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-
-    .admin-login {
-        flex-direction: column;
+    .search-area{
+        flex-direction:column;
     }
 }
-</style></head><body><!-- NAVIGATION --><header class="navbar"><div class="logo">
-    🔎 Cuenca SHS Lost & Found
-</div>
+</style>
+</head>
 
-<button class="menu-btn" onclick="toggleMenu()">
-    ☰
-</button>
+<body>
 
-<nav id="navMenu">
-    <a href="#home">Home</a>
-    <a href="#items">Items</a>
-    <a href="#report">Report</a>
-    <a href="#admin">Admin</a>
-</nav>
+<!-- LOGIN SCREEN -->
 
-</header><!-- HOME --><section id="home" class="hero"><div class="hero-content">
+<div id="loginScreen">
 
-    <span class="badge">
-        SCHOOL INNOVATION PROJECT
-    </span>
+    <div class="login-box">
 
-    <h1>
-        Lost something?<br>
-        <span>Let's help you find it.</span>
-    </h1>
+        <div class="login-logo">🔎</div>
 
-    <p>
-        A digital Lost & Found system for
-        Cuenca Senior High School.
-    </p>
+        <h1>CSHS Lost & Found</h1>
 
-    <div class="hero-buttons">
+        <p>
+            A school-based system for reporting,
+            finding, and returning lost items.
+        </p>
 
-        <a href="#report" class="btn primary">
-            Report an Item
-        </a>
+        <button class="google-btn" id="googleLogin">
+            🔐 Continue with Google
+        </button>
 
-        <a href="#items" class="btn secondary">
-            Find an Item
-        </a>
+        <div class="login-note">
+            Please use your real school-related account.
+            Your contact information will not be publicly displayed.
+        </div>
 
     </div>
 
 </div>
 
-</section><!-- STATISTICS --><section class="stats"><div class="stat-card">
 
-    <h2 id="lostCount">
-        0
-    </h2>
+<!-- MAIN WEBSITE -->
 
-    <p>
-        Lost Items
-    </p>
+<div id="mainWebsite" class="hidden">
 
-</div>
+<nav class="navbar">
+
+    <div class="logo">
+        🔎 CSHS Lost & Found
+    </div>
+
+    <div class="menu-btn" onclick="toggleMenu()">
+        ☰
+    </div>
+
+    <div id="navMenu">
+
+        <a href="#home">Home</a>
+        <a href="#items">Reports</a>
+        <a href="#report">Report</a>
+        <a href="#admin">Admin</a>
+
+    </div>
+
+    <div class="user-area">
+
+        <span id="userName"></span>
+
+        <button class="logout-btn" id="logoutBtn">
+            Logout
+        </button>
+
+    </div>
+
+</nav>
 
 
-<div class="stat-card">
+<!-- HERO -->
 
-    <h2 id="foundCount">
-        0
-    </h2>
+<section class="hero" id="home">
 
-    <p>
-        Found Items
-    </p>
-
-</div>
-
-
-<div class="stat-card">
-
-    <h2 id="claimedCount">
-        0
-    </h2>
-
-    <p>
-        Returned
-    </p>
-
-</div>
-
-</section><!-- ITEMS --><section id="items" class="section"><div class="section-title">
-
-    <span>
-        ITEM DATABASE
-    </span>
-
-    <h2>
-        Lost & Found Items
-    </h2>
+    <h1>CSHS Lost & Found System</h1>
 
     <p>
-        Search reported items below.
+        Helping students find and return lost belongings.
     </p>
 
-</div>
+    <p class="motto">
+        “Small acts of honesty make a better school community.”
+    </p>
+
+</section>
 
 
-<div class="search-box">
+<!-- USER INFO -->
 
-    <input
-        type="text"
-        id="searchInput"
-        placeholder="🔎 Search item..."
-        oninput="displayItems()"
-    >
+<div class="user-info">
 
-    <select
-        id="typeFilter"
-        onchange="displayItems()"
-    >
-
-        <option value="all">
-            All Items
-        </option>
-
-        <option value="lost">
-            Lost
-        </option>
-
-        <option value="found">
-            Found
-        </option>
-
-        <option value="claimed">
-            Returned
-        </option>
-
-    </select>
+    👤 Logged in as:
+    <strong id="loggedUser"></strong>
 
 </div>
 
 
-<div
-    id="itemsContainer"
-    class="items-container"
-></div>
+<!-- STATS -->
 
-</section><!-- REPORT --><section
-    id="report"
-    class="section report-section"
-><div class="section-title">
+<div class="stats">
 
-    <span>
-        REPORT
-    </span>
+    <div class="stat">
 
-    <h2>
-        Report an Item
+        <h2 id="lostCount">0</h2>
+
+        <p>Lost Items</p>
+
+    </div>
+
+    <div class="stat">
+
+        <h2 id="foundCount">0</h2>
+
+        <p>Found Items</p>
+
+    </div>
+
+    <div class="stat">
+
+        <h2 id="claimedCount">0</h2>
+
+        <p>Returned</p>
+
+    </div>
+
+</div>
+
+
+<!-- REPORTS -->
+
+<section class="container" id="items">
+
+    <h2 class="section-title">
+        📋 Lost & Found Reports
     </h2>
 
-    <p>
-        Help the school community return lost belongings.
-    </p>
+    <div class="search-area">
 
-</div>
-
-
-<form id="reportForm">
-
-    <div class="form-group">
-
-        <label>
-            Report Type
-        </label>
-
-        <select
-            id="reportType"
-            required
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search item..."
         >
 
-            <option value="">
-                Select report type
+        <select id="typeFilter">
+
+            <option value="all">
+                All
             </option>
 
             <option value="lost">
-                I lost an item
+                Lost
             </option>
 
             <option value="found">
-                I found an item
+                Found
+            </option>
+
+            <option value="claimed">
+                Returned
             </option>
 
         </select>
 
     </div>
 
+    <div id="itemsContainer"></div>
 
-    <div class="form-group">
-
-        <label>
-            Item Name
-        </label>
-
-        <input
-            type="text"
-            id="itemName"
-            placeholder="Example: Black Wallet"
-            required
-        >
-
-    </div>
+</section>
 
 
-    <div class="form-group">
+<!-- REPORT FORM -->
 
-        <label>
-            Description
-        </label>
+<section class="container" id="report">
 
-        <textarea
-            id="itemDescription"
-            placeholder="Describe the item..."
-            required
-        ></textarea>
+    <div class="form-box">
 
-    </div>
+        <h2 class="section-title">
+            📝 Report an Item
+        </h2>
 
+        <form id="reportForm">
 
-    <div class="form-row">
+            <div class="form-group">
 
-        <div class="form-group">
+                <label>
+                    Report Type
+                </label>
 
-            <label>
-                📍 Item Location
-            </label>
+                <select id="reportType" required>
 
-            <input
-                type="text"
-                id="itemLocation"
-                placeholder="Example: School Canteen"
-                required
-            >
+                    <option value="lost">
+                        I Lost an Item
+                    </option>
 
-            <div class="location-help">
-                Where was the item lost or found?
+                    <option value="found">
+                        I Found an Item
+                    </option>
+
+                </select>
+
             </div>
 
-        </div>
+
+            <div class="form-group">
+
+                <label>
+                    Item Name
+                </label>
+
+                <input
+                    type="text"
+                    id="itemName"
+                    placeholder="Example: Black Wallet"
+                    required
+                >
+
+            </div>
 
 
-        <div class="form-group">
+            <div class="form-group">
 
-            <label>
-                📅 Date
-            </label>
+                <label>
+                    Description
+                </label>
 
-            <input
-                type="date"
-                id="itemDate"
-                required
+                <textarea
+                    id="itemDescription"
+                    placeholder="Describe the item..."
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    📍 Where should the owner/finder meet?
+                </label>
+
+                <select id="meetingLocation" required>
+
+                    <option value="">
+                        Choose a school location
+                    </option>
+
+                    <option>
+                        School Canteen
+                    </option>
+
+                    <option>
+                        Building 1 - Near the Office
+                    </option>
+
+                    <option>
+                        Guard House
+                    </option>
+
+                    <option>
+                        School Chapel
+                    </option>
+
+                    <option>
+                        Library
+                    </option>
+
+                    <option>
+                        Building 2
+                    </option>
+
+                    <option>
+                        Other School Location
+                    </option>
+
+                </select>
+
+                <div class="location-help">
+                    For safety, please choose a meeting place
+                    inside the school.
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    📍 Item Location
+                </label>
+
+                <input
+                    type="text"
+                    id="itemLocation"
+                    placeholder="Where was the item lost or found?"
+                    required
+                >
+
+                <div class="location-help">
+                    Example: Classroom, hallway, canteen, etc.
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Date
+                </label>
+
+                <input
+                    type="date"
+                    id="itemDate"
+                    required
+                >
+
+            </div>
+
+
+            <!-- PHOTO -->
+
+            <div class="form-group">
+
+                <div
+                    class="photo-label"
+                    id="photoLabel"
+                >
+                    📷 Photo of Lost Item
+                </div>
+
+                <input
+                    type="file"
+                    id="itemPhoto"
+                    accept="image/*"
+                    capture="environment"
+                    required
+                >
+
+                <img id="photoPreview">
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="submit-btn"
             >
+                📤 Submit Report
+            </button>
 
-        </div>
+        </form>
 
     </div>
 
+</section>
 
-    <div class="form-group">
 
-        <label>
-            Your Name
-        </label>
+<!-- ADMIN -->
+
+<section class="container" id="admin">
+
+    <div class="admin-box">
+
+        <h2>
+            🔐 Admin Panel
+        </h2>
+
+        <p>
+            Authorized personnel only.
+        </p>
 
         <input
-            type="text"
-            id="reporterName"
-            placeholder="Enter your name"
-            required
+            type="password"
+            id="adminCode"
+            placeholder="Enter admin code"
         >
+
+        <button
+            class="admin-btn"
+            onclick="loginAdmin()"
+        >
+            Enter Admin Mode
+        </button>
+
+        <p id="adminStatus"></p>
 
     </div>
 
-
-    <div class="form-group">
-
-        <label>
-            📸 Item Photo
-        </label>
-
-        <input
-            type="file"
-            id="itemPhoto"
-            accept="image/*"
-            capture="environment"
-            required
-        >
-
-        <div class="photo-help">
-            A photo is required before submitting the report.
-        </div>
-
-    </div>
+</section>
 
 
-    <button
-        type="submit"
-        class="submit-btn"
-    >
-        Submit Report
-    </button>
+<footer>
 
-</form>
+    <p>
+        🔎 CSHS Lost & Found System
+    </p>
 
-</section><!-- ADMIN --><section
-    id="admin"
-    class="admin-section"
-><h2>
-    🔐 Admin Panel
-</h2>
+    <p>
+        “Lost something? We can help you find it.”
+    </p>
 
-<p>
-    Enter the administrator code to manage reports.
-</p>
+    <p>
+        “Found an item? Help return it to its owner.”
+    </p>
 
+    <p>
+        © 2026 School Lost & Found Project
+    </p>
 
-<div class="admin-login">
-
-    <input
-        type="password"
-        id="adminCode"
-        placeholder="Enter admin code"
-    >
-
-    <button onclick="adminLogin()">
-        Login
-    </button>
+</footer>
 
 </div>
 
 
-<div
-    id="adminStatus"
-    class="admin-status"
->
-    Admin mode is OFF.
-</div>
+<script type="module">
 
+import {
+    initializeApp
+}
+from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 
-<button
-    id="logoutAdmin"
-    class="logout-btn"
-    onclick="adminLogout()"
-    style="display:none;"
->
-    Logout Admin
-</button>
-
-</section><!-- FOOTER --><footer><h3>
-    🔎 Cuenca SHS Lost & Found
-</h3>
-
-<p>
-    A student-centered digital solution
-    for lost belongings.
-</p>
-
-<p class="credits">
-    V2 Prototype • HTML • CSS • Firebase
-</p>
-
-</footer><!-- FIREBASE + JAVASCRIPT --><script type="module">
-
-/* =========================================
-   FIREBASE CONNECTION
-========================================= */
-
-import { initializeApp } from
-"https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 
 import {
     getFirestore,
@@ -846,404 +907,455 @@ import {
     deleteDoc,
     doc,
     serverTimestamp
-} from
-"https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+}
+from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
+
+import {
+    getAuth,
+    GoogleAuthProvider,
+    signInWithPopup,
+    onAuthStateChanged,
+    signOut
+}
+from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+
+
+/* FIREBASE CONFIG */
 
 const firebaseConfig = {
 
     apiKey:
-        "AIzaSyAnqUiLmFzqvqAeocVqYf8UWTQG8DQXTbM",
+    "AIzaSyAnqUiLmFzqvqAeocVqYf8UWTQG8DQXTbM",
 
     authDomain:
-        "cuenca-shs-lost-and-found.firebaseapp.com",
+    "cuenca-shs-lost-and-found.firebaseapp.com",
 
     projectId:
-        "cuenca-shs-lost-and-found",
+    "cuenca-shs-lost-and-found",
 
     storageBucket:
-        "cuenca-shs-lost-and-found.firebasestorage.app",
+    "cuenca-shs-lost-and-found.firebasestorage.app",
 
     messagingSenderId:
-        "870729158846",
+    "870729158846",
 
     appId:
-        "1:870729158846:web:9ae0bb2982f5063c668eef",
+    "1:870729158846:web:9ae0bb2982f5063c668eef",
 
     measurementId:
-        "G-ERZZQLPPMJ"
+    "G-ERZZQLPPMJ"
+
 };
 
 
-/* INITIALIZE FIREBASE */
+const app = initializeApp(firebaseConfig);
 
-const app =
-    initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
+const auth = getAuth(app);
 
-/* CONNECT FIRESTORE */
-
-const db =
-    getFirestore(app);
-
-
-/* REPORTS COLLECTION */
+const provider = new GoogleAuthProvider();
 
 const reportsCollection =
-    collection(db, "reports");
+    collection(db,"reports");
 
 
-console.log("✅ Firebase connected!");
-console.log("✅ Firestore connected!");
+let items = [];
+
+let adminMode = false;
 
 
-/* =========================================
-   ADMIN
-========================================= */
+/* ADMIN CODE */
 
 const ADMIN_CODE =
     "cuencaseniorhighschoolpr2prog";
 
-let isAdmin = false;
 
+/* LOGIN */
 
-/* =========================================
-   ITEMS
-========================================= */
+document
+.getElementById("googleLogin")
+.addEventListener("click",async()=>{
 
-let items = [];
+    try{
 
-
-/* =========================================
-   MOBILE MENU
-========================================= */
-
-window.toggleMenu = function() {
-
-    const menu =
-        document.getElementById("navMenu");
-
-    menu.classList.toggle("show");
-
-};
-
-
-/* =========================================
-   ADMIN LOGIN
-========================================= */
-
-window.adminLogin = function() {
-
-    const code =
-        document.getElementById("adminCode").value;
-
-
-    if (code === ADMIN_CODE) {
-
-        isAdmin = true;
-
-        document.getElementById(
-            "adminStatus"
-        ).textContent =
-            "✅ Admin mode is ON.";
-
-        document.getElementById(
-            "logoutAdmin"
-        ).style.display =
-            "inline-block";
-
-        document.getElementById(
-            "adminCode"
-        ).value = "";
-
-        displayItems();
-
-        alert(
-            "Admin login successful!"
+        await signInWithPopup(
+            auth,
+            provider
         );
 
-    } else {
+    }catch(error){
 
         alert(
-            "❌ Incorrect admin code."
+            "Login failed: " +
+            error.message
         );
 
     }
 
-};
+});
 
 
-/* =========================================
-   ADMIN LOGOUT
-========================================= */
+/* AUTH STATE */
 
-window.adminLogout = function() {
+onAuthStateChanged(
+    auth,
+    user => {
 
-    isAdmin = false;
+        if(user){
 
-    document.getElementById(
-        "adminStatus"
-    ).textContent =
-        "Admin mode is OFF.";
+            document
+            .getElementById("loginScreen")
+            .classList.add("hidden");
 
-    document.getElementById(
-        "logoutAdmin"
-    ).style.display =
-        "none";
+            document
+            .getElementById("mainWebsite")
+            .classList.remove("hidden");
 
-    displayItems();
+            document
+            .getElementById("userName")
+            .textContent =
+            user.displayName || "Student";
 
-};
+            document
+            .getElementById("loggedUser")
+            .textContent =
+            (user.displayName || "Student")
+            + " • "
+            + (user.email || "");
 
+        }else{
 
-/* =========================================
-   IMAGE COMPRESSION
-========================================= */
+            document
+            .getElementById("loginScreen")
+            .classList.remove("hidden");
 
-function compressImage(file) {
+            document
+            .getElementById("mainWebsite")
+            .classList.add("hidden");
 
-    return new Promise((resolve, reject) => {
+        }
 
-        const reader =
-            new FileReader();
-
-
-        reader.onload = function(event) {
-
-            const image =
-                new Image();
-
-
-            image.onload = function() {
-
-                const canvas =
-                    document.createElement(
-                        "canvas"
-                    );
+    }
+);
 
 
-                const maxWidth = 700;
-
-                let width =
-                    image.width;
-
-                let height =
-                    image.height;
-
-
-                if (width > maxWidth) {
-
-                    height =
-                        height *
-                        (maxWidth / width);
-
-                    width =
-                        maxWidth;
-
-                }
-
-
-                canvas.width =
-                    width;
-
-                canvas.height =
-                    height;
-
-
-                const ctx =
-                    canvas.getContext("2d");
-
-
-                ctx.drawImage(
-                    image,
-                    0,
-                    0,
-                    width,
-                    height
-                );
-
-
-                const compressed =
-                    canvas.toDataURL(
-                        "image/jpeg",
-                        0.55
-                    );
-
-
-                resolve(compressed);
-
-            };
-
-
-            image.onerror =
-                reject;
-
-            image.src =
-                event.target.result;
-
-        };
-
-
-        reader.onerror =
-            reject;
-
-        reader.readAsDataURL(file);
-
-    });
-
-}
-
-
-/* =========================================
-   SUBMIT REPORT
-========================================= */
+/* LOGOUT */
 
 document
-    .getElementById("reportForm")
-    .addEventListener(
-        "submit",
-        async function(event) {
+.getElementById("logoutBtn")
+.addEventListener("click",()=>{
 
-            event.preventDefault();
+    signOut(auth);
 
-
-            const photoFile =
-                document.getElementById(
-                    "itemPhoto"
-                ).files[0];
+});
 
 
-            if (!photoFile) {
+/* REPORT TYPE PHOTO LABEL */
 
-                alert(
-                    "📸 Please upload a photo of the item."
-                );
+document
+.getElementById("reportType")
+.addEventListener("change",function(){
 
-                return;
+    const label =
+        document.getElementById("photoLabel");
 
-            }
+    if(this.value === "lost"){
+
+        label.textContent =
+        "📷 Photo of Lost Item";
+
+    }else{
+
+        label.textContent =
+        "📷 Photo of Found Item";
+
+    }
+
+});
 
 
-            const submitButton =
-                document.querySelector(
-                    ".submit-btn"
-                );
+/* PHOTO PREVIEW */
+
+document
+.getElementById("itemPhoto")
+.addEventListener("change",function(){
+
+    const file = this.files[0];
+
+    if(!file) return;
+
+    const reader =
+        new FileReader();
+
+    reader.onload = function(e){
+
+        const preview =
+            document.getElementById("photoPreview");
+
+        preview.src =
+            e.target.result;
+
+        preview.style.display =
+            "block";
+
+    };
+
+    reader.readAsDataURL(file);
+
+});
 
 
-            submitButton.disabled =
-                true;
+/* COMPRESS PHOTO */
 
-            submitButton.textContent =
-                "Uploading...";
+function compressImage(file){
 
+    return new Promise(
+        (resolve,reject)=>{
 
-            try {
+            const reader =
+                new FileReader();
 
-                const photo =
-                    await compressImage(
-                        photoFile
+            reader.onload = function(event){
+
+                const image =
+                    new Image();
+
+                image.onload = function(){
+
+                    const canvas =
+                        document.createElement(
+                            "canvas"
+                        );
+
+                    const maxWidth = 700;
+
+                    let width =
+                        image.width;
+
+                    let height =
+                        image.height;
+
+                    if(width > maxWidth){
+
+                        height =
+                            height *
+                            maxWidth /
+                            width;
+
+                        width =
+                            maxWidth;
+
+                    }
+
+                    canvas.width =
+                        width;
+
+                    canvas.height =
+                        height;
+
+                    const ctx =
+                        canvas.getContext(
+                            "2d"
+                        );
+
+                    ctx.drawImage(
+                        image,
+                        0,
+                        0,
+                        width,
+                        height
                     );
 
-
-                const report = {
-
-                    type:
-                        document.getElementById(
-                            "reportType"
-                        ).value,
-
-                    name:
-                        document.getElementById(
-                            "itemName"
-                        ).value.trim(),
-
-                    description:
-                        document.getElementById(
-                            "itemDescription"
-                        ).value.trim(),
-
-                    location:
-                        document.getElementById(
-                            "itemLocation"
-                        ).value.trim(),
-
-                    date:
-                        document.getElementById(
-                            "itemDate"
-                        ).value,
-
-                    reporter:
-                        document.getElementById(
-                            "reporterName"
-                        ).value.trim(),
-
-                    photo:
-                        photo,
-
-                    status:
-                        "active",
-
-                    schoolId:
-                        "cuenca-shs",
-
-                    createdAt:
-                        serverTimestamp()
+                    resolve(
+                        canvas.toDataURL(
+                            "image/jpeg",
+                            0.55
+                        )
+                    );
 
                 };
 
+                image.onerror =
+                    reject;
 
-                await addDoc(
-                    reportsCollection,
-                    report
-                );
+                image.src =
+                    event.target.result;
 
+            };
 
-                alert(
-                    "✅ Report submitted successfully!"
-                );
+            reader.onerror =
+                reject;
 
-
-                document
-                    .getElementById(
-                        "reportForm"
-                    )
-                    .reset();
-
-
-            } catch (error) {
-
-                console.error(
-                    "Firestore error:",
-                    error
-                );
-
-
-                alert(
-                    "❌ Could not submit the report.\n\n" +
-                    error.message
-                );
-
-            }
-
-
-            submitButton.disabled =
-                false;
-
-            submitButton.textContent =
-                "Submit Report";
+            reader.readAsDataURL(file);
 
         }
     );
 
+}
 
-/* =========================================
-   REAL-TIME FIRESTORE REPORTS
-========================================= */
+
+/* SUBMIT REPORT */
+
+document
+.getElementById("reportForm")
+.addEventListener("submit",async function(e){
+
+    e.preventDefault();
+
+    const user = auth.currentUser;
+
+    if(!user){
+
+        alert(
+            "Please log in first."
+        );
+
+        return;
+
+    }
+
+
+    const photoFile =
+        document
+        .getElementById("itemPhoto")
+        .files[0];
+
+    if(!photoFile){
+
+        alert(
+            "Please insert a photo of the item."
+        );
+
+        return;
+
+    }
+
+
+    const submitButton =
+        document.querySelector(
+            ".submit-btn"
+        );
+
+    submitButton.disabled = true;
+
+    submitButton.textContent =
+        "Sending...";
+
+
+    try{
+
+        const photo =
+            await compressImage(
+                photoFile
+            );
+
+
+        const report = {
+
+            type:
+                document
+                .getElementById("reportType")
+                .value,
+
+            name:
+                document
+                .getElementById("itemName")
+                .value
+                .trim(),
+
+            description:
+                document
+                .getElementById("itemDescription")
+                .value
+                .trim(),
+
+            location:
+                document
+                .getElementById("itemLocation")
+                .value
+                .trim(),
+
+            meetingLocation:
+                document
+                .getElementById("meetingLocation")
+                .value,
+
+            date:
+                document
+                .getElementById("itemDate")
+                .value,
+
+            reporter:
+                user.displayName || "Student",
+
+            reporterEmail:
+                user.email || "",
+
+            photo:
+                photo,
+
+            status:
+                "active",
+
+            schoolId:
+                "cuenca-shs",
+
+            createdAt:
+                serverTimestamp(),
+
+            returnedAt:
+                null
+
+        };
+
+
+        await addDoc(
+            reportsCollection,
+            report
+        );
+
+
+        alert(
+            "Report submitted successfully!"
+        );
+
+
+        this.reset();
+
+        document
+        .getElementById("photoPreview")
+        .style.display =
+        "none";
+
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(
+            "Could not send report: "
+            + error.message
+        );
+
+    }
+
+
+    submitButton.disabled = false;
+
+    submitButton.textContent =
+        "📤 Submit Report";
+
+});
+
+
+/* LOAD REPORTS */
 
 onSnapshot(
     reportsCollection,
 
-    (snapshot) => {
+    async snapshot => {
 
         items =
             snapshot.docs.map(
@@ -1258,508 +1370,542 @@ onSnapshot(
             );
 
 
+        /*
+         * ONLY RETURNED REPORTS
+         * ARE CHECKED FOR 24-HOUR DELETION.
+         */
+
+        for(const item of items){
+
+            if(
+                item.status === "claimed" &&
+                item.returnedAt
+            ){
+
+                const returnedTime =
+                    item.returnedAt
+                    .toMillis();
+
+                const currentTime =
+                    Date.now();
+
+                const twentyFourHours =
+                    24 * 60 * 60 * 1000;
+
+
+                if(
+                    currentTime -
+                    returnedTime
+                    >=
+                    twentyFourHours
+                ){
+
+                    try{
+
+                        await deleteDoc(
+                            doc(
+                                db,
+                                "reports",
+                                item.id
+                            )
+                        );
+
+                    }catch(error){
+
+                        console.error(
+                            "Automatic deletion failed:",
+                            error
+                        );
+
+                    }
+
+                }
+
+            }
+
+        }
+
+
         displayItems();
 
         updateStats();
 
     },
 
-    (error) => {
+    error => {
 
-        console.error(
-            "Firestore listener error:",
-            error
-        );
+        console.error(error);
 
-
-        document.getElementById(
-            "itemsContainer"
-        ).innerHTML = `
-
-            <div style="
-                grid-column:1/-1;
-                background:white;
-                padding:30px;
-                border-radius:12px;
-                text-align:center;
-            ">
-
-                <h3>
-                    ⚠️ Unable to load reports
-                </h3>
-
-                <p>
-                    Check your Firebase Firestore rules.
-                </p>
-
-            </div>
-
-        `;
+        document
+        .getElementById("itemsContainer")
+        .innerHTML =
+        "<p>Unable to load reports.</p>";
 
     }
+
 );
 
 
-/* =========================================
-   DISPLAY ITEMS
-========================================= */
+/* DISPLAY */
 
-window.displayItems = function() {
+function displayItems(){
 
     const container =
-        document.getElementById(
-            "itemsContainer"
-        );
-
+        document
+        .getElementById("itemsContainer");
 
     const search =
-        document.getElementById(
-            "searchInput"
-        )
+        document
+        .getElementById("searchInput")
         .value
-        .toLowerCase()
-        .trim();
-
+        .toLowerCase();
 
     const filter =
-        document.getElementById(
-            "typeFilter"
-        ).value;
+        document
+        .getElementById("typeFilter")
+        .value;
 
 
-    let filtered =
-        items.filter(item => {
+    container.innerHTML = "";
 
-            const name =
-                (item.name || "")
-                .toLowerCase();
 
-            const description =
-                (item.description || "")
-                .toLowerCase();
-
-            const location =
-                (item.location || "")
-                .toLowerCase();
-
+    const filtered =
+        items.filter(item=>{
 
             const matchesSearch =
-                name.includes(search)
-                ||
-                description.includes(search)
-                ||
-                location.includes(search);
+                item.name
+                ?.toLowerCase()
+                .includes(search) ||
+
+                item.description
+                ?.toLowerCase()
+                .includes(search) ||
+
+                item.location
+                ?.toLowerCase()
+                .includes(search);
 
 
-            let matchesFilter =
-                true;
+            let matchesFilter = true;
 
 
-            if (filter === "lost") {
+            if(filter !== "all"){
 
-                matchesFilter =
-                    item.type === "lost"
-                    &&
-                    item.status !== "claimed";
+                if(
+                    filter === "claimed"
+                ){
 
-            }
+                    matchesFilter =
+                        item.status ===
+                        "claimed";
 
+                }else{
 
-            if (filter === "found") {
+                    matchesFilter =
+                        item.type ===
+                        filter &&
+                        item.status !==
+                        "claimed";
 
-                matchesFilter =
-                    item.type === "found"
-                    &&
-                    item.status !== "claimed";
-
-            }
-
-
-            if (filter === "claimed") {
-
-                matchesFilter =
-                    item.status === "claimed";
+                }
 
             }
 
 
             return (
-                matchesSearch
-                &&
+                matchesSearch &&
                 matchesFilter
             );
 
         });
 
 
-    if (filtered.length === 0) {
+    if(filtered.length === 0){
 
-        container.innerHTML = `
-
-            <div style="
-                grid-column:1/-1;
-                text-align:center;
-                padding:40px;
-                background:white;
-                border-radius:12px;
-            ">
-
-                <h3>
-                    No items found
-                </h3>
-
-                <p>
-                    There are no reports matching your search.
-                </p>
-
-            </div>
-
-        `;
-
-        updateStats();
+        container.innerHTML =
+        "<p>No reports found.</p>";
 
         return;
 
     }
 
 
-    container.innerHTML =
-        filtered
-        .map(item => {
+    filtered.forEach(item=>{
+
+        const card =
+            document.createElement(
+                "div"
+            );
+
+        card.className =
+            "item-card";
 
 
-            const statusText =
-                item.status === "claimed"
-                    ? "Returned"
-                    : item.type === "lost"
-                        ? "Lost"
-                        : "Found";
+        let statusText =
+            "Active";
+
+        let statusClass =
+            item.type;
 
 
-            const statusClass =
-                item.status === "claimed"
-                    ? "claimed"
-                    : item.type;
+        if(
+            item.status ===
+            "claimed"
+        ){
+
+            statusText =
+                "Returned";
+
+            statusClass =
+                "returned";
+
+        }
 
 
-            let adminButtons = "";
+        card.innerHTML = `
 
-
-            if (isAdmin) {
-
-                adminButtons = `
-
-                    <div class="item-actions">
-
-                        ${
-                            item.status !== "claimed"
-                            ? `
-
-                            <button
-                                class="return-btn"
-                                onclick="markReturned('${item.id}')"
-                            >
-                                ✅ Mark Returned
-                            </button>
-
-                            `
-                            : ""
-                        }
-
-
-                        <button
-                            class="delete-btn"
-                            onclick="deleteItem('${item.id}')"
-                        >
-                            🗑️ Delete
-                        </button>
-
-                    </div>
-
-                `;
-
+            ${
+                item.photo
+                ?
+                `<img src="${item.photo}">`
+                :
+                ""
             }
 
+            <div class="item-content">
 
-            return `
+                <h3>
+                    ${escapeHTML(item.name)}
+                </h3>
 
-                <div class="item-card">
+                <p>
+                    <strong>Description:</strong>
+                    ${escapeHTML(item.description)}
+                </p>
 
-                    <img
-                        src="${item.photo || ""}"
-                        alt="Item photo"
-                    >
+                <p>
+                    📍 <strong>Item Location:</strong>
+                    ${escapeHTML(item.location)}
+                </p>
 
+                <p>
+                    🤝 <strong>Meeting Place:</strong>
+                    ${escapeHTML(item.meetingLocation || "School location")}
+                </p>
 
-                    <div class="item-content">
+                <p>
+                    📅 <strong>Date:</strong>
+                    ${escapeHTML(item.date)}
+                </p>
 
-                        <span
-                            class="status ${statusClass}"
+                <p>
+                    👤 <strong>Reported by:</strong>
+                    ${escapeHTML(item.reporter)}
+                </p>
+
+                <span class="status ${statusClass}">
+                    ${statusText}
+                </span>
+
+                <div class="card-buttons">
+
+                    ${
+                        adminMode &&
+                        item.status !== "claimed"
+                        ?
+                        `
+                        <button
+                            class="return-btn"
+                            onclick="markReturned('${item.id}')"
                         >
-                            ${statusText}
-                        </span>
+                            ✓ Mark as Returned
+                        </button>
+                        `
+                        :
+                        ""
+                    }
 
-
-                        <h3>
-                            ${escapeHTML(
-                                item.name || ""
-                            )}
-                        </h3>
-
-
-                        <p>
-                            <strong>
-                                Description:
-                            </strong>
-
-                            ${escapeHTML(
-                                item.description || ""
-                            )}
-                        </p>
-
-
-                        <p>
-                            📍 <strong>
-                                Location:
-                            </strong>
-
-                            ${escapeHTML(
-                                item.location || ""
-                            )}
-                        </p>
-
-
-                        <p>
-                            📅 <strong>
-                                Date:
-                            </strong>
-
-                            ${escapeHTML(
-                                item.date || ""
-                            )}
-                        </p>
-
-
-                        <p>
-                            👤 <strong>
-                                Reported by:
-                            </strong>
-
-                            ${escapeHTML(
-                                item.reporter || ""
-                            )}
-                        </p>
-
-
-                        ${
-                            item.status === "claimed"
-                            ? `
-
-                            <p style="
-                                color:#166534;
-                                font-weight:bold;
-                            ">
-                                ✅ This item has been returned.
-                            </p>
-
-                            `
-                            : ""
-                        }
-
-
-                        ${adminButtons}
-
-                    </div>
+                    ${
+                        adminMode
+                        ?
+                        `
+                        <button
+                            class="delete-btn"
+                            onclick="deleteReport('${item.id}')"
+                        >
+                            🗑 Delete
+                        </button>
+                        `
+                        :
+                        ""
+                    }
 
                 </div>
 
-            `;
+            </div>
 
-        })
-        .join("");
+        `;
+
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
+/* ESCAPE HTML */
+
+function escapeHTML(value){
+
+    return String(
+        value || ""
+    )
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+
+}
+
+
+/* MARK RETURNED */
+
+window.markReturned =
+async function(id){
+
+    if(!adminMode){
+
+        alert(
+            "Admin access required."
+        );
+
+        return;
+
+    }
+
+
+    if(
+        !confirm(
+            "Mark this item as returned?\n\n" +
+            "It will automatically be deleted after 24 hours."
+        )
+    ){
+
+        return;
+
+    }
+
+
+    try{
+
+        await updateDoc(
+            doc(
+                db,
+                "reports",
+                id
+            ),
+            {
+
+                status:
+                    "claimed",
+
+                returnedAt:
+                    serverTimestamp()
+
+            }
+        );
+
+
+        alert(
+            "Item marked as returned. " +
+            "It will be automatically deleted after 24 hours."
+        );
+
+
+    }catch(error){
+
+        alert(
+            "Could not mark as returned: "
+            + error.message
+        );
+
+    }
 
 };
 
 
-/* =========================================
-   MARK RETURNED
-========================================= */
+/* DELETE */
 
-window.markReturned =
-    async function(id) {
+window.deleteReport =
+async function(id){
 
-        if (!isAdmin) {
+    if(!adminMode){
 
-            alert(
-                "Only the admin can do this."
-            );
+        alert(
+            "Admin access required."
+        );
 
-            return;
+        return;
 
-        }
+    }
 
 
-        const confirmed =
-            confirm(
-                "Mark this item as Returned?"
-            );
+    if(
+        !confirm(
+            "Delete this report?"
+        )
+    ){
+
+        return;
+
+    }
 
 
-        if (!confirmed) return;
+    try{
+
+        await deleteDoc(
+            doc(
+                db,
+                "reports",
+                id
+            )
+        );
+
+    }catch(error){
+
+        alert(
+            "Could not delete report: "
+            + error.message
+        );
+
+    }
+
+};
 
 
-        try {
+/* ADMIN LOGIN */
 
-            await updateDoc(
+window.loginAdmin =
+function(){
 
-                doc(
-                    db,
-                    "reports",
-                    id
-                ),
-
-                {
-                    status:
-                        "claimed"
-                }
-
-            );
+    const code =
+        document
+        .getElementById("adminCode")
+        .value;
 
 
-        } catch (error) {
-
-            console.error(error);
-
-            alert(
-                "❌ Could not update the report."
-            );
-
-        }
-
-    };
+    const status =
+        document
+        .getElementById("adminStatus");
 
 
-/* =========================================
-   DELETE REPORT
-========================================= */
+    if(code === ADMIN_CODE){
 
-window.deleteItem =
-    async function(id) {
+        adminMode = true;
 
-        if (!isAdmin) {
+        status.textContent =
+            "✓ Admin mode enabled.";
 
-            alert(
-                "Only the admin can delete reports."
-            );
+        status.style.color =
+            "green";
 
-            return;
+        displayItems();
 
-        }
+    }else{
 
+        adminMode = false;
 
-        const confirmed =
-            confirm(
-                "Are you sure you want to delete this report?"
-            );
+        status.textContent =
+            "✕ Incorrect admin code.";
 
+        status.style.color =
+            "red";
 
-        if (!confirmed) return;
+    }
 
-
-        try {
-
-            await deleteDoc(
-
-                doc(
-                    db,
-                    "reports",
-                    id
-                )
-
-            );
+};
 
 
-        } catch (error) {
+/* SEARCH */
 
-            console.error(error);
-
-            alert(
-                "❌ Could not delete the report."
-            );
-
-        }
-
-    };
+document
+.getElementById("searchInput")
+.addEventListener(
+    "input",
+    displayItems
+);
 
 
-/* =========================================
-   STATISTICS
-========================================= */
+document
+.getElementById("typeFilter")
+.addEventListener(
+    "change",
+    displayItems
+);
 
-function updateStats() {
+
+/* STATS */
+
+function updateStats(){
 
     const lost =
         items.filter(
             item =>
-                item.type === "lost"
-                &&
-                item.status !== "claimed"
+            item.type === "lost" &&
+            item.status !== "claimed"
         ).length;
 
 
     const found =
         items.filter(
             item =>
-                item.type === "found"
-                &&
-                item.status !== "claimed"
+            item.type === "found" &&
+            item.status !== "claimed"
         ).length;
 
 
     const returned =
         items.filter(
             item =>
-                item.status === "claimed"
+            item.status === "claimed"
         ).length;
 
 
-    document.getElementById(
-        "lostCount"
-    ).textContent =
-        lost;
+    document
+    .getElementById("lostCount")
+    .textContent =
+    lost;
 
 
-    document.getElementById(
-        "foundCount"
-    ).textContent =
-        found;
+    document
+    .getElementById("foundCount")
+    .textContent =
+    found;
 
 
-    document.getElementById(
-        "claimedCount"
-    ).textContent =
-        returned;
-
-}
-
-
-/* =========================================
-   HTML SECURITY
-========================================= */
-
-function escapeHTML(text) {
-
-    const div =
-        document.createElement(
-            "div"
-        );
-
-    div.textContent =
-        text;
-
-    return div.innerHTML;
+    document
+    .getElementById("claimedCount")
+    .textContent =
+    returned;
 
 }
 
-</script></body>
+
+/* MOBILE MENU */
+
+window.toggleMenu =
+function(){
+
+    document
+    .getElementById("navMenu")
+    .classList
+    .toggle("active");
+
+};
+
+</script>
+
+</body>
 </html>
